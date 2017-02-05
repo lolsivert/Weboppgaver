@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+   <title>Partikkel-fest</title>
+   <style>
+       body {
+           background-color:#666;
+       }
+
+       #canvas {
+           background-color:#010;
+           margin-left:100px;
+       }
+   </style>
+   <script>
+   var canvas, ctx;
+   var drawInterval = setInterval(function() { draw(); }, 20);
+
+    var particle = {
+           x: 110,
+           y: 500,
+           xSpeed: 0,
+           ySpeed: -2,
+           size: 10,
+           farge1: "blue",
+           farge2: "red", };
+    window.onload = function() {
+            canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            draw();
+        };
+
+
+        //Tegner particle
+        function draw() {
+          ctx.clearRect(0,0,900,900);
+            ctx.fillStyle = particle.farge1;
+
+            ctx.fillRect(particle.x, particle.y,particle.size,particle.size);
+            particle.x = particle.x + particle.xSpeed;
+            particle.y = particle.y + particle.ySpeed;
+        };
+
+    </script>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="900" height="900"></canvas>
+</body>
+</html>
